@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebPro.Models.Photos>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" href="~/assets/css/pages/blog.css">
+    <link rel="stylesheet" href="~/assets/css/pages/blog_magazine.css">
+}
+<div class="content-side-right">
+    <div class="container content-sm">
+        @foreach (var item in Model)
+        {
+            <div class="row blog blog-medium margin-bottom-40">
+                <div>
+                    <h2>@item.title</h2>
+                    <ul class="list-unstyled list-inline blog-info">
+                        <li><i class="fa fa-calendar"></i> @item.publishTime.ToString("yyyy-MM-dd")</li>
+                    </ul>
+                    <p>@item.content</p>
+                    <p>
+                        <a class="btn-u btn-u-sm" href="@Url.Action("Create", "PhotoConsole")">新增 <i class="fa  fa-plus margin-left-5"></i></a>
+                        <a class="btn-u btn-u-sm" href="@Url.Action("Edit", "PhotoConsole", new { id = @item.id }, null)">编辑 <i class="fa fa-pencil margin-left-5"></i></a>
+                        <a class="btn-u btn-u-sm" href="@Url.Action("Delete", "PhotoConsole", new { id = @item.id }, null)">删除 <i class="fa fa-times margin-left-5"></i></a>
+                    </p>
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+</div>
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery-appear.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#photopli").addClass("active");
+            $("#photoli").addClass("active");
+        });
+    </script>
+}

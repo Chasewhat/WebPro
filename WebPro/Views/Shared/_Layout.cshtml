@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh" xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <title>@ViewBag.Title</title>
+
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (IsSectionDefined("metas"))
+    {
+        @RenderSection("metas")
+    }
+    <link rel="alternate" type="application/rss+xml" title="左瑞祥的个人博客 &raquo; Feed" href="~/feed" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="~/assets/css/footers/footer-v2.css">
+    <link rel="stylesheet" href="~/assets/css/custom.css">
+
+    <link rel="stylesheet" href="~/assets/plugins/animate.css">
+    <link rel="stylesheet" href="~/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="~/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/theme-skins/dark.css">
+    @RenderSection("PageSpecificStyleSheetIncludes", required: false)
+    <!-- CSS Global Compulsory -->
+    @*@Styles.Render("~/assets/css")
+        @Styles.Render("~/assets/plugins/css")*@
+</head>
+<body class="header-fixed boxed-layout container @(ViewBag.skin=="black"?"dark":"")">
+
+    <div class="wrapper">
+        <!--=== Header ===-->
+        <div class="header header-sticky">
+            <!-- Navbar -->
+            <div class="container">
+                <!-- Logo -->
+                <a class="logo">
+                    <img id="logo-header" src="~/assets/img/@(ViewBag.skin == "black" ? "logo1.png" : "logo.png")" alt="Logo">
+                </a>
+                <!-- End Logo -->
+                <!-- Topbar -->
+                <div class="topbar">
+                    <ul class="loginbar pull-right">
+                        <li class="hoverSelector">
+                            <i class="fa fa-globe"></i>
+                            <a>切换皮肤</a>
+                            <ul class="languages hoverSelectorBlock" style="cursor:pointer">
+                                @if (ViewBag.skin == "black")
+                                {
+                                    <li>
+                                        <a id="whitea" onclick="WhiteSkin()">优雅白</a>
+                                    </li>
+                                    <li class="active"><a id="blacka" onclick="BlackSkin()">炫酷黑 <i class="fa fa-check"></i></a></li>
+                                }
+                                else
+                                {
+                                    <li class="active">
+                                        <a id="whitea" onclick="WhiteSkin()">优雅白 <i class="fa fa-check"></i></a>
+                                    </li>
+                                    <li><a id="blacka" onclick="BlackSkin()">炫酷黑</a></li>
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Topbar -->
+                <!-- Toggle get grouped for better mobile display -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <!-- End Toggle -->
+            </div><!--/end container-->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li class="dropdown" id="homeli" title="Home">
+                            @Html.ActionLink("主页", "Index", "Home")
+                        </li>
+                        <!-- End Home -->
+                        <!-- Pages -->
+                        <li class="dropdown" id="blogli" title="Blog">
+                            @Html.ActionLink("程序人生", "Index", "Blog")
+                        </li>
+                        <!-- End Pages -->
+                        <!-- Blog -->
+                        <li class="dropdown" id="shareli" title="SourceCode">
+                            @Html.ActionLink("个人分享", "Index", "SourceCode")
+                        </li>
+                        <!-- End Blog -->
+                        <!-- Portfolio -->
+                        <li class="dropdown" id="messageli" title="MessageBoard">
+                            @Html.ActionLink("留言板", "Index", "MessageBoard")
+                        </li>
+                        <!-- End Portfolio -->
+                        <!-- Features -->
+                        <li class="dropdown" id="timeli" title="TimeLine">
+                            @Html.ActionLink("时间轴", "Index", "TimeLine")
+                        </li>
+                        <!-- End Features -->
+                        <!-- Features -->
+                        <li class="dropdown" id="photoli" title="Photo">
+                            @Html.ActionLink("照片墙", "Index", "Photo")
+                        </li>
+                        <!-- End Features -->
+                        <!-- Shortcodes -->
+                        <li class="dropdown" id="aboutli" title="AboutMe">
+                            @Html.ActionLink("关于我", "Index", "AboutMe")
+                        </li>
+                        <!-- End Shortcodes -->
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
+                            <div class="search-open">
+                                @using (Html.BeginForm("Index", "Blog", FormMethod.Get))
+                                {
+                                    <div class="input-group animated fadeInDown">
+                                        <input type="text" id="searchKey" name="searchKey" class="form-control" placeholder="全局检索">
+                                        @Html.Hidden("searchFlag", 2)
+                                        <span class="input-group-btn">
+                                            @*<input type="submit" class="btn-u" value="Go" />*@
+                                            <button class="btn-u" type="submit">Go</button>
+                                        </span>
+                                    </div>
+                                }
+                                </div>
+                            </li>
+                        <!-- End Search Block -->
+                        </ul>
+                    </div><!--/end container-->
+                </div><!--/navbar-collapse-->
+            <!-- End Navbar -->
+                                </div>
+        <!--=== End Header ===-->
+                                    @RenderBody()
+        <!--=== Footer v2 ===-->
+                                    <div id="footer-v2" class="footer-v2">
+                                        <div class="footer">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <!-- About -->
+                                                    <div class="col-md-3 md-margin-bottom-40">
+                                                        <a href="@Url.Action("Index", "Home")"><img id="logo-footer" class="footer-logo" src="~/assets/img/@(ViewBag.skin == "black" ? "logo1.png" : "logo.png")" alt=""></a>
+                                                        <p><i class="fa  fa-comment"></i> 如有任何问题，随时欢迎联系我！</p>
+                                                        @*<p><i class="fa   fa-home"></i> Version 2.0.1</p>*@
+                                                    </div>
+                                                    <!-- End About -->
+                                                    <!-- Link List -->
+                                                    <div class="col-md-3 md-margin-bottom-40">
+                                                        <div class="headline"><h2 class="heading-sm">相关链接</h2></div>
+                                                        <ul class="list-unstyled link-list">
+                                                            <li>@Html.ActionLink("程序人生", "Index", "Blog")<i class="fa fa-leaf"></i></li>
+                                                            <li>@Html.ActionLink("个人分享", "Index", "SourceCode")<i class="fa fa-leaf"></i></li>
+                                                            <li>@Html.ActionLink("留言板", "Index", "MessageBoard")<i class="fa fa-leaf"></i></li>
+                                                            <li>@Html.ActionLink("时间轴", "Index", "TimeLine")<i class="fa fa-leaf"></i></li>
+                                                        </ul>
+                                                    </div><!--/col-md-3-->
+                                                    <!-- End Link List -->
+                                                    <!-- Latest Tweets -->
+                                                    <div class="col-md-3 md-margin-bottom-40">
+                                                        <div class="latest-tweets">
+                                                            <div class="headline"><h2 class="heading-sm">维护记录</h2></div>
+                                                            <div class="latest-tweets-inner">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <p>
+                                                                    界面调整，增加皮肤控制
+                                                                    <small>July 09, 2015</small>
+                                                                </p>
+                                                            </div>
+                                                            <div class="latest-tweets-inner">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <p>
+                                                                    @Html.ActionLink("个人分享", "Index", "SourceCode")
+                                                                    模块发布
+                                                                    <small>June 25, 2015</small>
+                                                                </p>
+                                                            </div>
+                                                            <div class="latest-tweets-inner">
+                                                                <i class="fa fa-twitter"></i>
+                                                                <p>
+                                                                    @Html.ActionLink("初步搭建完成", "Details", "Blog", new { id = 1 }, null)
+                                                                    ，也算是第一个版本吧
+                                                                    <small>June 2, 2015</small>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- End Latest Tweets -->
+                                                    <!-- Address -->
+                                                    <div class="col-md-3 md-margin-bottom-40">
+                                                        <div class="headline"><h2 class="heading-sm">联系我</h2></div>
+                                                        <address class="md-margin-bottom-40">
+                                                            <i class="fa fa-globe"></i>Website: <a href="@Url.Action("Index", "Home")">www.zrxcy.cn</a> <br />
+                                                            <i class="fa fa-envelope"></i>Email: <a href="mailto:zuoruixg@hotmail.com">zuoruixg@hotmail.com</a>
+                                                        </address>
+
+                                                        <!-- Social Links -->
+                                                        <ul class="list-inline social-icons-v1">
+                                                            <li><a href="tencent://message/?uin=806679767&Site=http://qbar.qq.com/application/&Menu=yes"><i class="rounded-x fa fa-qq"></i></a></li>
+                                                            <li><a href="mailto:zuoruixg@hotmail.com"><i class="rounded-x fa  fa-envelope-square"></i></a></li>
+                                                        </ul>
+                                                        <!-- End Social Links -->
+                                                    </div>
+                                                    <!-- End Address -->
+                                                </div>
+                                            </div>
+                                        </div><!--/footer-->
+
+                                        <div class="copyright">
+                                            <div class="container">
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <p class="text-center">Designed by zuorx. <a href="http://www.miitbeian.gov.cn/" target="_blank">鲁ICP备15018990号-1|2</a></p>
+                                                    </div>
+                                                    @*<div class="col-md-8">
+                                                            <ul class="footer-socials list-inline">
+                                                                <li>
+                                                                    <a href="tencent://message/?uin=806679767&Site=http://qbar.qq.com/application/&Menu=yes" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="QQ">
+                                                                        <i class="fa fa-qq"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="mailto:zuoruixg@hotmail.com" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Mail">
+                                                                        <i class="fa fa-envelope-square"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>*@
+                                                </div>
+                                            </div>
+                                        </div><!--/copyright-->
+                                    </div>
+        <!--=== End Footer v2 ===-->
+                                </div><!--/wrapper-->
+                                    <script>
+                                        (function () {
+                                            var bp = document.createElement('script');
+                                            var curProtocol = window.location.protocol.split(':')[0];
+                                            if (curProtocol === 'https') {
+                                                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                                            }
+                                            else {
+                                                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                                            }
+                                            var s = document.getElementsByTagName("script")[0];
+                                            s.parentNode.insertBefore(bp, s);
+                                        })();
+                                    </script>
+                                    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+                                    @*<script type="text/javascript" src="~/assets/plugins/backstretch/jquery.backstretch.min.js"></script>
+                                        <script type="text/javascript">
+                                            $.backstretch([
+                                              "/assets/img/patterns/7.jpg"
+                                              ])
+                                        </script>*@
+
+    <!-- JS Global Compulsory -->
+                                    <!--[if lt IE 9]>
+                                        <script src="~/assets/plugins/respond.js"></script>
+                                        <script src="~/assets/plugins/html5shiv.js"></script>
+                                        <script src="~/assets/plugins/placeholder-IE-fixes.js"></script>
+                                    <![endif]-->
+                                    @RenderSection("PageSpecificJavascriptIncludes", required: false)
+                                </body>
+                            </html>

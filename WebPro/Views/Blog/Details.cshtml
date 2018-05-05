@@ -1,0 +1,138 @@
+﻿@model WebPro.Models.DetailQuery<List<WebPro.Models.Blogs>, WebPro.Models.BlogRight<IEnumerable<string>, IQueryable<WebPro.Models.Blogs>>>
+
+@{
+    ViewBag.Title = @Model.Blogs[0].title+"-左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="@Model.Blogs[0].title-左瑞祥的个人博客">
+    <meta name="keywords" content="@Model.Blogs[0].keyword.Replace('|', ','),左瑞祥,个人博客">
+}
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" href="~/assets/css/pages/blog.css">
+    <link rel="stylesheet" href="~/assets/css/code/shCoreDefault.css">
+}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">再长的路，一步步也能走完，再短的路，不迈开双脚也无法到达。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> @Html.ActionLink("主页", "Index", "Home")</li>
+            <li>@Html.ActionLink("程序人生", "Index", "Blog")</li>
+            <li class="active">@Model.Blogs[0].title</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row blog-page blog-item">
+        <!-- Left Sidebar -->
+        <div class="col-md-9 md-margin-bottom-60">
+            <!--Blog Post-->
+            <div class="blog margin-bottom-40">
+                <h2>@Html.ActionLink(@Model.Blogs[0].title, "Details", "Blog", new { id = @Model.Blogs[0].id }, null)</h2>
+                <div class="blog-post-tags">
+                    <ul class="list-unstyled list-inline blog-info">
+                        <li><i class="fa fa-calendar"></i> @Model.Blogs[0].publishTime.ToString("yyyy-MM-dd")</li>
+                        <li><i class="fa fa-pencil"></i> @Html.ActionLink(@Model.Blogs[0].author, "Index", "AboutMe")</li>
+                        <li><i class="fa fa-comments"></i> @Model.Blogs[0].viewCount.ToString() 阅读</li>
+                    </ul>
+                    <ul class="list-unstyled list-inline blog-tags">
+                        <li>
+                            <i class="fa fa-tags"></i>
+                            @foreach (var key in Model.Blogs[0].keyword.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
+                            {
+                                @Html.ActionLink(@key, "Index", "Blog", new { searchKey = @key, searchFlag = 1 }, null)
+                            }
+                        </li>
+                    </ul>
+                </div>
+                @*<div class="tag-box tag-box-v2">
+                        <p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Fusce condimentum eleifend enim a feugiatt non libero consectetur adipiscing elit magna. Sed et quam lacus. Condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>
+                    </div>*@
+                @Html.Raw(@Model.Blogs[0].content)
+                @if (!string.IsNullOrEmpty(@Model.Blogs[0].sourceId.ToString()) && @Model.Blogs[0].sourceId != 0)
+                {
+                    <br><p>本文相关代码可前往以下链接获取：</p><br>
+                    @Html.ActionLink("示例代码", "Index", "SourceCode", new { searchId = @Model.Blogs[0].sourceId, searchFlag = 2 }, null)
+                }
+            </div>
+            <!--End Blog Post-->
+
+            <hr>
+            <div class="blog-twitter">
+                <div class=" blog-twitter-inner">
+                    <span><i class="fa  fa-reply"></i>上一篇：@Html.ActionLink((@Model.Blogs[1].title + (@Model.Blogs[1].id == Model.Blogs[0].id ? "(这是最新一篇)" : "")), "Details", "Blog", new { id = @Model.Blogs[1].id }, null)</span>
+                    <br />
+                    <span><i class="fa  fa-share"></i>下一篇：@Html.ActionLink((@Model.Blogs[2].title + (@Model.Blogs[2].id == Model.Blogs[0].id ? "(这是最后一篇)" : "")), "Details", "Blog", new { id = @Model.Blogs[2].id }, null)</span>
+                </div>
+            </div>
+            <hr>
+            <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "32" }, "share": {}, "image": { "viewList": ["qzone", "tsina", "tqq", "renren", "weixin"], "viewText": "分享到：", "viewSize": "24" }, "selectShare": { "bdContainerClass": null, "bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"] } }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+            <hr>
+            @*<div class="ds-share" data-thread-key="@Model.Blogs[0].id" data-title="@Model.Blogs[0].title">
+                    <div class="ds-share-inline">
+                        <ul class="ds-share-icons-16">
+
+                            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+
+                            <li> <a class="ds-weibo" href="javascript:void(0);" data-service="weibo">新浪微博</a> </li>
+
+                            <li> <a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a> </li>
+
+                            <li> <a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a> </li>
+
+                            <li> <a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a> </li>
+                        </ul>
+                    </div>
+                    <div class="ds-share-icons-more">
+
+                    </div>
+                </div>*@
+            <!--PC版-->
+            <div id="SOHUCS" sid="@Model.Blogs[0].id"></div>
+            <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+            <script type="text/javascript">
+                window.changyan.api.config({
+                    appid: 'cyt66qHra',
+                    conf: 'prod_3864f0bc4abb3b5125c9943aeb9e0b02'
+                });
+            </script>
+        </div>
+        <!-- End Left Sidebar -->
+        @Html.Partial("RightShare", Model.BlogRight)
+    </div><!--/row-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+<!--=== End Content Part ===-->
+<!-- JS Global Compulsory -->
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+
+    <script type="text/javascript" src="~/assets/js/code/shCore.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushJScript.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushCSharp.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushPhp.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushCpp.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushJava.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushPython.js"></script>
+	<script type="text/javascript" src="~/assets/js/code/shBrushSql.js"></script>
+    <script type="text/javascript" src="~/assets/js/code/shBrushXml.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $("#blogli").addClass("active");
+            App.init();
+            SyntaxHighlighter.all();
+        });
+    </script>
+}

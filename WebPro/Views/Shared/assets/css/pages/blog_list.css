@@ -1,0 +1,72 @@
+/*Blog Latest Tweets*/
+.blog-twitter .blog-twitter-inner {
+	padding: 10px;
+	position: relative;
+	background: #f7f7f7;
+	margin-bottom: 10px;
+}
+
+.blog-twitter .blog-twitter-inner,
+.blog-twitter .blog-twitter-inner:after,
+.blog-twitter .blog-twitter-inner:before {
+	transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;	
+}
+
+.blog-twitter .blog-twitter-inner:after,
+.blog-twitter .blog-twitter-inner:before {
+	width: 0; 
+	height: 0;
+	right: 0px;
+	bottom: 0px;
+	content: " "; 
+	display: block; 
+	position: absolute;
+}
+
+.blog-twitter .blog-twitter-inner:after {
+	border-top: 15px solid #eee;	
+	border-right: 15px solid transparent;
+	border-left: 0px solid transparent;
+	border-left-style: inset; /*FF fixes*/
+	border-right-style: inset; /*FF fixes*/
+}
+.blog-twitter .blog-twitter-inner:before {
+	border-bottom: 15px solid #fff;	
+	border-right: 0 solid transparent;
+	border-left: 15px solid transparent;
+	border-left-style: inset; /*FF fixes*/
+	border-bottom-style: inset; /*FF fixes*/
+}
+
+.blog-twitter .blog-twitter-inner:hover {
+	border-color: #72c02c;
+	border-top-color: #72c02c;	
+}
+.blog-twitter .blog-twitter-inner:hover:after {
+	border-top-color: #72c02c;	
+}
+
+.blog-twitter .blog-twitter-inner span.twitter-time {
+	color: #777;
+	display: block;
+	font-size: 11px; 
+}
+
+.blog-twitter .blog-twitter-inner a {
+	color: #72c02c;
+	text-decoration: none;
+}
+.blog-twitter .blog-twitter-inner a:hover {
+	text-decoration: underline;
+}
+
+.blog-twitter .blog-twitter-inner i.fa {
+	top: 2px;
+	color: #bbb;
+	font-size: 18px;
+	position: relative;
+}

@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "关于我-左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="关于我-左瑞祥的个人博客">
+    <meta name="keywords" content="左瑞祥,个人博客,关于我">
+}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">逆风的方向，更适合飞翔，我不怕千万人阻挡，只怕自己投降。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> @Html.ActionLink("主页", "Index", "Home")</li>
+            <li class="active">关于我</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+        <!-- Begin Content -->
+        <div class="col-md-9">
+            <div class="headline-left margin-bottom-30">
+                <h2 class="headline-brd heading-md">ABOUT <span class="color-green">ME</span></h2>
+            </div>
+            <p>
+                不刻意去捕捉时间的痕迹，很难觉察到时间的流逝，<br />
+                回首过往，无论甜蜜，无论懊悔，无论现在的自己是如何的平凡，<br />
+                我都要感谢曾经的自己。<br />
+                <br />
+                说实话，过去的我从未展望过今天，也从未想过会走上这条IT路；<br />
+                而现在，为了梦想，为了曾经信誓旦旦的一切，也为了变成自己羡慕的人，我正在路上，一往无前；<br />
+                未来，不敢说，也不能说，到时候就知道了。<br />
+                <br />
+                最后，借鉴一句话共勉：<br />
+                "既然认准了一条路，就不要去打听要走多久。"
+            </p>
+            <hr class="margin-bottom-40">
+            <ul class="list-inline social-icons-v1">
+                <li><a href="tencent://message/?uin=806679767&Site=http://qbar.qq.com/application/&Menu=yes"><i class="rounded-x fa fa-qq"></i></a></li>
+                <li><a href="mailto:zuoruixg@hotmail.com"><i class="rounded-x fa  fa-envelope-square"></i></a></li>
+            </ul>
+        </div>
+        <!-- End Content -->
+        @Html.Partial("~/Views/Shared/RightShareForOthers.cshtml")
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#aboutli").addClass("active");
+        });
+    </script>
+}

@@ -1,0 +1,102 @@
+﻿@model WebPro.Models.Blogs
+
+@{
+    ViewBag.Title = "博客编辑";
+}
+<div class="content-side-right">
+    <div class="container content-sm">
+        <div class="post-comment">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false)
+
+                <fieldset>
+                    <div class="headline">
+                        <h3><i class="fa fa-pencil"></i>编辑日志--@Model.title</h3>
+                        &nbsp;
+                        <a href="@Url.Action("Index")"><i class="fa  fa-reply"></i></a>
+                    </div>
+
+                    @Html.HiddenFor(model => model.id)
+
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-4 col-md-offset-0">
+                            <label>标题</label>
+                            <input id="title" name="title" type="text" class="form-control" value="@Model.title" placeholder="title">
+                            @Html.ValidationMessageFor(model => model.title)
+                            <input id="author" name="author" type="hidden" class="form-control" value="@Model.author" placeholder="title">
+                            @Html.ValidationMessageFor(model => model.author)
+                            <input id="orderNum" name="orderNum" type="hidden" class="form-control" value="@Model.orderNum" placeholder="title">
+                            @Html.ValidationMessageFor(model => model.orderNum)
+                            <input id="viewCount" name="viewCount" type="hidden" class="form-control" value="@Model.viewCount" placeholder="title">
+                            @Html.ValidationMessageFor(model => model.viewCount)
+                        </div>
+                        <div class="col-md-4 col-md-offset-0">
+                            <label>关键字</label>
+                            <input id="keyword" name="keyword" type="text" class="form-control" value="@Model.keyword" placeholder="keyword">
+                            @Html.ValidationMessageFor(model => model.keyword)
+                        </div>
+                        <div class="col-md-3 col-md-offset-0">
+                            <label>资源关联</label>
+                            <input id="sourceId" name="sourceId" type="text" class="form-control" value="@Model.sourceId">
+                            @Html.ValidationMessageFor(model => model.sourceId)
+                        </div>
+                    </div>
+
+                    <label>简述</label>
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-11 col-md-offset-0">
+                            <textarea id="showContent" name="showContent" class="form-control" rows="2" placeholder="sketch">@Model.showContent</textarea>
+                            @Html.ValidationMessageFor(model => model.showContent)
+                        </div>
+                    </div>
+
+                    <label>内容</label>
+                    
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-11 col-md-offset-0">
+                            @*<textarea id="myEditor" name="content" class="form-control" style="height:350px;width:100%" placeholder="content"></textarea>*@
+                            <script id="editor" name="content" type="text/plain" style="height:350px;width:100%">
+                            @Html.Raw(@Model.content)
+                            </script>
+                            @Html.ValidationMessageFor(model => model.content)
+                        </div>
+                    </div>
+                    <p>
+                        <input type="submit" class="btn-u" value="确 认" />
+                    </p>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery-appear.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/assets/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/assets/ueditor/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" src="~/assets/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        jQuery(document).ready(function () {
+            App.init();
+            $("#blogli").addClass("active");
+            //alert();
+            //var value='
+            //UE.getEditor('editor').execCommand('insertHtml', value);
+        });
+
+</script>
+}

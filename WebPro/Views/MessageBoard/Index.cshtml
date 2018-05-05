@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "留言板-左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="留言板-左瑞祥的个人博客">
+    <meta name="keywords" content="留言板，左瑞祥，个人博客">
+}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">不要问别人为你做了什么，而要问你为别人做了什么。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> @Html.ActionLink("主页", "Index", "Home")</li>
+            <li class="active">留言板</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+        <!-- Begin Content -->
+        <div class="col-md-9">
+            <!--PC版-->
+            <div id="SOHUCS" sid="199001"></div>
+            <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+            <script type="text/javascript">
+                window.changyan.api.config({
+                    appid: 'cyt66qHra',
+                    conf: 'prod_3864f0bc4abb3b5125c9943aeb9e0b02'
+                });
+            </script>
+        </div>
+        <!-- End Content -->
+        @Html.Partial("~/Views/Shared/RightShareForOthers.cshtml")
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#messageli").addClass("active");
+        });
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿@model WebPro.Models.BlogRight<IEnumerable<string>, IQueryable<WebPro.Models.Blogs>>
+<!-- Right Sidebar -->
+<div class="col-md-3 magazine-page">
+    <!-- Search Bar -->
+    <div class="headline headline-md"><h2>文本检索</h2></div>
+    @using (Html.BeginForm("Index", "Blog", FormMethod.Get))
+    {
+        <div class="input-group margin-bottom-40">
+            <input id="searchKey" name="searchKey" type="text" class="form-control" placeholder="Search">
+            @Html.Hidden("searchFlag", 2)
+            <span class="input-group-btn">
+                <input class="btn-u" type="submit" value="Go" />
+            </span>
+        </div>
+    }
+
+    <!-- End Search Bar -->
+    <!-- Blog Tags -->
+    <div class="headline headline-md"><h2>标签检索</h2></div>
+    <ul class="list-unstyled blog-tags margin-bottom-30">
+        @foreach (var item in Model.Tag)
+        {
+            <li>
+                <a href="@Url.Action("Index", "Blog", new { searchKey = @item, searchFlag=1 }, null)"><i class='fa fa-tags'></i> @item</a>
+            </li>
+        }
+    </ul>
+    <!-- End Blog Tags -->
+    <!-- Posts -->
+    <div class="blog-twitter margin-bottom-40">
+        <div class="headline headline-md"><h2>点击排行</h2></div>
+        @foreach (var item in Model.Best)
+        {
+            <div class="blog-twitter-inner">
+                <i class="fa fa-twitter"></i>
+                @Html.ActionLink(item.title, "Details", "Blog", new { id = @item.id }, null)
+                <br />
+                <p style="font-size:10px"><i class="fa fa-heart"></i>&nbsp;@item.keyword.Replace('|', '&') &nbsp;<i class="fa fa-comments"></i>&nbsp;@item.viewCount</p>
+            </div>
+        }
+    </div><!--/posts-->
+    <!-- End Posts -->
+</div>
+<!-- End Right Sidebar -->

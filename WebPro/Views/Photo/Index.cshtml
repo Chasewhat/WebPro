@@ -1,0 +1,71 @@
+﻿@model List<WebPro.Models.PhotoGroups>
+
+@{
+    ViewBag.Title = "照片墙-左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="照片墙-左瑞祥的个人博客">
+    <meta name="keywords" content="照片墙，左瑞祥，个人博客">
+}
+@using WebPro
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" href="~/assets/css/pages/portfolio-v1.css">
+}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">岁月静好，时光易老。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> @Html.ActionLink("主页", "Index", "Home")</li>
+            <li class="active">照片墙</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Content Part ===-->
+<!--=== Featured Blog ===-->
+<div class="container content-sm portfolio-4-columns">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-6">
+                <div class="view view-tenth">
+                    <img class="img-responsive" src="@item.imgTitle" alt="" />
+                    <div class="mask">
+                        <h2>@item.title</h2>
+                        @*<p>@item.content</p>*@
+                        <a href="@Url.Action("Details", "Photo", new { id = @item.id },null)" class="info">More</a>
+                    </div>
+                </div>
+                <div class="featured-blog">
+                    <h2><a class="color-dark" href="@Url.Action("Details", "Photo", new { id = @item.id },null)">@item.title</a></h2>
+                    <ul class="list-unstyled list-inline blog-info">
+                        <li><i class="fa fa-calendar"></i> @item.publishTime.ToString("yyyy-MM-dd")</li>
+                    </ul>
+                    <p>@item.content</p>
+                </div>
+            </div>
+        }
+    </div><!--/end row-->
+</div>
+<!--=== End Featured Blog ===-->
+<!--=== End Content Part ===-->
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#photoli").addClass("active");
+            $(".carousel-inner div.item:nth-child(1)").addClass("active");
+        });
+    </script>
+}

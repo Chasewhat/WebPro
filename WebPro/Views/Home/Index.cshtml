@@ -1,0 +1,373 @@
+﻿@model WebPro.Models.PagerQuery<IQueryable<WebPro.Models.Blogs>, IQueryable<WebPro.Models.Sources>, IQueryable<WebPro.Models.PhotoForPage>>
+@{
+    ViewBag.Title = "左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="左瑞祥的个人博客">
+    <meta name="keywords" content="左瑞祥,个人博客">
+}
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" href="~/assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="~/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/assets/plugins/horizontal-parallax/css/horizontal-parallax.css">
+
+    <link rel="stylesheet" href="~/assets/css/pages/profile.css">
+}
+<!--<!--=== Slider ===-->
+@*<div class="slider-inner">
+        <div id="da-slider" class="da-slider">
+            <div class="da-slide">
+                <p class="font-custom">
+                    苍茫大地一剑尽挽破,<br />何处繁华笙歌落。
+                    <br />斜倚云端千壶掩寂寞,
+                    <br />纵使他人空笑我。
+                </p>
+                <div class="da-img"><img class="img-responsive" src="assets/plugins/parallax-slider/img/1.png" alt=""></div>
+            </div>
+            <div class="da-slide">
+                <p>
+                    <i>昨夜寒蛩不住鸣。<br />惊回千里梦,已三更。
+                    <br />起来独自绕阶行。
+                    <br />人悄悄,帘外月胧明。
+                    <br />白首为功名。
+                    <br />旧山松竹老,阻归程。
+                    <br />欲将心事付瑶琴。
+                    <br />知音少,弦断有谁听。</i>
+                </p>
+                <div class="da-img">
+                        <iframe src="http://www.baidu.com" width="530" height="300" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+            </div>
+            <div class="da-slide">
+                <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
+                <p>
+                    驿外断桥边,寂寞开无主。
+                    <br />已是黄昏独自愁,更著风和雨。
+                    <br />无意苦争春,一任群芳妒。
+                    <br />零落成泥碾作尘,只有香如故。
+                </p>
+                <div class="da-img"><img src="assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01" /></div>
+            </div>
+            <div class="da-arrows">
+                <span class="da-arrows-prev"></span>
+                <span class="da-arrows-next"></span>
+            </div>
+        </div>
+    </div>*@
+<!--/slider-->
+<!--=== End Slider ===-->
+<!--=== Slider ===-->
+<div id="sequence-theme" class="sequence-inner">
+    <div id="sequence">
+        <img class="prev" src="~/assets/plugins/horizontal-parallax/images/bt-prev1.png" alt="Previous" />
+        <img class="next" src="~/assets/plugins/horizontal-parallax/images/bt-next1.png" alt="Next" />
+        <ul>
+            <li>
+                <div class="info">
+                    <p class="head-text">
+                        苍茫大地一剑尽挽破,<br />何处繁华笙歌落。
+                        <br />斜倚云端千壶掩寂寞,
+                        <br />纵使他人空笑我。
+                    </p>
+                </div>
+                <img id="imgWhitef" class="kite" src="~/assets/plugins/horizontal-parallax/images/@(ViewBag.skin=="black"?"4":"1").png" alt="Kite" />
+            </li>
+            <li class="animate-in">
+                <div class="info">
+                    <p class="head-text">
+                        昨夜寒蛩不住鸣。<br />惊回千里梦,已三更。
+                        <br />起来独自绕阶行。
+                        <br />人悄悄,帘外月胧明。
+                        <br />白首为功名。
+                        <br />旧山松竹老,阻归程。
+                        <br />欲将心事付瑶琴。
+                        <br />知音少,弦断有谁听。
+                    </p>
+                </div>
+                <img id="imgWhites" class="aeroplane" src="~/assets/plugins/horizontal-parallax/images/@(ViewBag.skin=="black"?"5":"2").png" alt="Aeroplane" />
+            </li>
+            <li>
+                <div class="info">
+                    <p class="head-text">
+                        驿外断桥边,寂寞开无主。
+                        <br />已是黄昏独自愁,更著风和雨。
+                        <br />无意苦争春,一任群芳妒。
+                        <br />零落成泥碾作尘,只有香如故。
+                    </p>
+                </div>
+                <img id="imgWhitet" class="balloon" src="~/assets/plugins/horizontal-parallax/images/@(ViewBag.skin=="black"?"6":"3").png" alt="Balloon" />
+            </li>
+
+        </ul>
+    </div>
+</div>
+<!--=== End Slider ===-->
+<!--=== Purchase Block ===-->
+<!-- End Purchase Block -->
+<div class="container content-sm">
+    <!-- Service Blocks -->
+    <div class="row margin-bottom-30">
+        <div class="shadow-wrapper">
+            <blockquote class="hero box-shadow shadow-effect-2">
+                <p>
+                    <em>
+                        Everything that you've learnt and all the hardships you've suffered will all come in handy at some point in your life.
+                    </em>
+                </p>
+                <p><em>你学过的每一样东西，你遭受的每一次苦难，都会在你一生中的某个时候派上用场。</em></p>
+                <small><em>佩内洛普·菲兹杰拉德 《离岸》</em></small>
+            </blockquote>
+        </div>
+    </div>
+    <!--=== Content Part ===-->
+    <div class="container content profile">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Welcome Block -->
+                @*<div class="headline"><h2>每日一语</h2></div>
+                    <div class="shadow-wrapper">
+                        <blockquote class="hero text-right box-shadow shadow-effect-3">
+                            <p><em>我们若已接受最坏的，就再没有什么损失。</em></p>
+                            <small><em>卡耐基</em></small>
+                        </blockquote>
+                    </div>*@
+
+                @*<blockquote class="hero-unify margin-bottom-30">
+                        <p>永不放弃的追求</p>
+                        <small>zuorx</small>
+                    </blockquote>*@
+                <!-- End Welcome Block -->
+                <!-- Recent Works -->
+                <div class="owl-carousel-v1 owl-work-v1 margin-bottom-40">
+                    <div class="headline">
+                        <h2 class="pull-left"><i class="fa fa-users"></i>@Html.ActionLink(" 个人分享", "Index", "SourceCode")</h2>
+                        <div class="owl-navigation">
+                            <div class="customNavigation">
+                                <a class="owl-btn prev-v2"><i class="fa fa-angle-left"></i></a>
+                                <a class="owl-btn next-v2"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div><!--/navigation-->
+                    </div>
+
+                    <div class="owl-recent-works-v1">
+                        @foreach (var item in Model.EntityList)
+                        {
+                            <div class="item">
+                                <a href="@Url.Action("Index", "SourceCode", new { searchId = @item.id, searchFlag = 2 }, null)">
+                                    <em class="overflow-hidden">
+                                        <img class="img-responsive" src="@item.imgurls.Split('|')[0].Split('$')[0]" alt="">
+                                    </em>
+                                    <span>
+                                        <strong>@item.title</strong>
+                                        <i>@item.keyword.Replace('|', '&')</i>
+                                    </span>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!-- End Recent Works -->
+                <!-- Tag Box -->
+                <div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+                    <h2>精彩预告</h2>
+                    <p>待定！</p>
+                </div>
+                @*<div class="tag-box tag-box-v2">
+                        <p>经不起似水流年，逃不过此间少年.</p>
+                    </div>*@
+                <!-- End Tag Box -->
+                <!-- Tabs v1 -->
+                @*<div class="tab-v1">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                            <li><a data-toggle="tab" href="#profile">Profile</a></li>
+                            <li><a data-toggle="tab" href="#messages">Messages</a></li>
+                            <li><a data-toggle="tab" href="#settings">Settings</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane fade in active">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="~/assets/img/main/img12.jpg" class="img-responsive img-tab-space" alt="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4>Tab1</h4>
+                                        <p>此处保留</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="profile" class="tab-pane fade in">
+                                <img src="~/assets/img/main/img5.jpg" class="pull-left lft-img-margin img-width-200" alt="">
+                                <h4>Heading Sample 2</h4>
+                                <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, <strong>ac adipiscing nunc.</strong> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac <strong>interdum ullamcorper.</strong></p>
+                            </div>
+                            <div id="messages" class="tab-pane fade in">
+                                <h4>Heading Sample 3</h4>
+                                <p><img src="~/assets/img/main/img6.jpg" class="pull-right rgt-img-margin img-width-200" alt=""> <strong>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id.</strong> Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                            </div>
+                            <div id="settings" class="tab-pane fade in">
+                                <h4>Heading Sample 4</h4>
+                                <p><img src="~/assets/img/main/img1.jpg" class="pull-right rgt-img-margin img-width-200" alt=""> Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, consectetur id. Donec eget orci metus, ac adipiscing nunc. <strong>Pellentesque fermentum</strong>, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
+                            </div>
+                        </div>
+                    </div>*@<!--/tab-v1-->
+                <!-- End Tabs v1 -->
+
+            </div>
+
+            <div class="col-md-4">
+
+                <!-- Choose Us -->
+                <div class="posts">
+                    <div class="headline">
+                        <h3><i class="fa fa-pencil"></i>@Html.ActionLink(" 程序人生", "Index", "Blog")</h3>
+                        <!--<a href="#"><i class="fa fa-cog pull-right"></i></a>-->
+                    </div>
+                    @foreach (var item in Model.Pager)
+                    {
+                        <dl class="dl-horizontal">
+                            <dt><img alt="" src="@item.imgurls.Split('|')[0]"></dt>
+                            <dd>
+                                <p>@Html.ActionLink(item.title, "Details", "Blog", new { id = @item.id }, null)</p>
+                                <small>@item.publishTime.ToString("yyyy-MM-dd")</small>
+                            </dd>
+                        </dl>
+                    }
+                    @*<ul class="list-unstyled mCustomScrollbar margin-bottom-20" data-mcs-theme="minimal-dark">
+                            @foreach (var item in Model.Pager)
+                            {
+                                <li class="notification">
+                                    <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-paper-clip"></i>
+                                    <div class="overflow-h">
+                                        <span>@Html.ActionLink(item.title, "Details", "Blog", new { id = @item.id }, null)</span>
+                                        <small>@item.publishTime.ToString("yyyy-MM-dd")</small>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                        <dl class="dl-horizontal">
+                            <dt><a href="#"><img alt="" src="assets/img/sliders/elastislide/33.jpg"></a></dt>
+                            <dd>
+                                <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
+                            </dd>
+                        </dl>*@
+                </div><!--/who-->
+                @*<hr />
+                    <iframe name="sinaWeatherTool" src="http://weather.news.sina.com.cn/chajian/iframe/weatherStyle2.html?city=%E9%9D%92%E5%B2%9B" width="200" height="20" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" style="color:green"></iframe>*@
+                @*<hr>*@
+                <!--<button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>-->
+                @*<div class="panel panel-profile">
+                        <div class="panel-heading overflow-h">
+                            <h2 class="panel-title heading-sm pull-left"><i class="fa fa-comments-o"></i> 最热评论</h2>
+                            <a href="page_profile_comments.html" class="btn-u btn-brd btn-brd-hover btn-u-dark btn-u-xs pull-right">查看全部</a>
+                        </div>
+                        <div id="scrollbar4" class="panel-body no-padding mCustomScrollbar" data-mcs-theme="minimal-dark">
+                            <div class="comment">
+                                <img src="~/assets/img/testimonials/img6.jpg" alt="">
+                                <div class="overflow-h">
+                                    <strong>Taylor Lee<small class="pull-right"> 25m</small></strong>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <ul class="list-inline comment-list">
+                                        <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                        <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <img src="~/assets/img/testimonials/img2.jpg" alt="">
+                                <div class="overflow-h">
+                                    <strong>Miranda Clarsson<small class="pull-right"> 44m</small></strong>
+                                    <p>Donec cursus, orci non posuere luctus, risus massa luctus nisi, sit amet cursus leo massa id arcu. Nunc tincidunt magna sit amet sapien congue.</p>
+                                    <ul class="list-inline comment-list">
+                                        <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                        <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <img src="~/assets/img/testimonials/img4.jpg" alt="">
+                                <div class="overflow-h">
+                                    <strong>Natasha Kolnikova<small class="pull-right"> 7h</small></strong>
+                                    <p>Suspendisse est est, sollicitudin eget auctor et, pharetra eu sapien. Mauris mollis libero ac auctor iaculis.</p>
+                                    <ul class="list-inline comment-list">
+                                        <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                        <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <img src="~/assets/img/testimonials/img1.jpg" alt="">
+                                <div class="overflow-h">
+                                    <strong>Mikel Andrews<small class="pull-right"> 15h</small></strong>
+                                    <p>Nam ut dolor cursus nibh aliquet bibendum in eget risus.</p>
+                                    <ul class="list-inline comment-list">
+                                        <li><i class="fa fa-heart"></i> <a href="#">20</a></li>
+                                        <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <img src="~/assets/img/testimonials/img7.jpg" alt="">
+                                <div class="overflow-h">
+                                    <strong>Edward Rooster<small class="pull-right"> 1d</small></strong>
+                                    <p>Nam ut dolor cursus nibh aliquet bibendum in eget risus. Mauris mollis libero ac auctor iaculis.</p>
+                                    <ul class="list-inline comment-list">
+                                        <li><i class="fa fa-heart"></i> <a href="#">23</a></li>
+                                        <li><i class="fa fa-comments"></i> <a href="#">5</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div><!--/row-->
+    </div><!--/container-->
+    <!-- End Content Part -->
+    <!-- End Service Blokcs -->
+    <!-- Recent Works -->
+    <!-- End Info Blokcs -->
+    <!-- Owl Clients v1 -->
+    <div class="headline"><h2><i class="fa fa-picture-o"></i>@Html.ActionLink(" 照片墙", "Index", "Photo")</h2></div>
+    <div class="owl-clients-v1">
+        @foreach (var item in Model.BlogRight)
+        {
+            <div class="item">
+                <a href="@Url.Action("Details", "Photo", new { id = @item.photoGroup, showid=@item.id }, null)"><img src="@item.imgurls" alt=""></a>
+            </div>
+        }
+    </div>
+    <!-- End Owl Clients v1 -->
+</div>
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/parallax-slider/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/horizontal-parallax/js/sequence.jquery-min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/horizontal-parallax/js/horizontal-parallax.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/owl-carousel.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/owl-recent-works.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            OwlCarousel.initOwlCarousel();
+            OwlRecentWorks.initOwlRecentWorksV2();
+            $("#homeli").addClass("active");
+            $.get("/Home/LogMaintenance ", function (data, status) {
+            });
+        });
+    </script>
+}
+
+
+
+<!-- End Content Part -->

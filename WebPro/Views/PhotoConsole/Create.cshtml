@@ -1,0 +1,91 @@
+﻿@model WebPro.Models.Photos
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="content-side-right">
+    <div class="container content-sm">
+        <div class="post-comment">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false)
+
+                <fieldset>
+                    <div class="headline">
+                        <h3><i class="fa fa-pencil"></i>新增照片</h3>
+                        &nbsp;
+                        <a href="@Url.Action("Index")"><i class="fa  fa-reply"></i></a>
+                    </div>
+
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-7 col-md-offset-0">
+                            <label>标题</label>
+                            <input id="title" name="title" type="text" class="form-control" placeholder="title">
+                            @Html.ValidationMessageFor(model => model.title)
+                        </div>
+                    </div>
+
+                    <label>内容</label>
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-11 col-md-offset-0">
+                            <textarea id="content" name="content" class="form-control" rows="5" placeholder="content"></textarea>
+                            @Html.ValidationMessageFor(model => model.content)
+                        </div>
+                    </div>
+
+
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-4 col-md-offset-0">
+                            <label>日期</label>
+                            <input id="publishTime" name="publishTime" type="datetime" class="form-control">
+                            @Html.ValidationMessageFor(model => model.publishTime)
+                        </div>
+                        <div class="col-md-3 col-md-offset-0">
+                            <label>排序</label>
+                            <input id="orderNum" name="orderNum" type="text" class="form-control" value="0">
+                            @Html.ValidationMessageFor(model => model.orderNum)
+                        </div>
+                    </div>
+
+                    <div class="row margin-bottom-10">
+                        <div class="col-md-4 col-md-offset-0">
+                            <label>照片路径</label>
+                            <input id="imgurls" name="imgurls" type="text" class="form-control" placeholder="photo path">
+                            @Html.ValidationMessageFor(model => model.imgurls)
+                        </div>
+                        <div class="col-md-4 col-md-offset-0">
+                            <label>所属相册</label>
+                            <input id="photoGroup" name="photoGroup" type="text" class="form-control" placeholder="album">
+                            @Html.ValidationMessageFor(model => model.photoGroup)
+                        </div>
+                    </div>
+                    <p>
+                        <input type="submit" class="btn-u" value="确 认" />
+                    </p>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery-appear.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#photopli").addClass("active");
+            $("#photoli").addClass("active");
+        });
+    </script>
+}

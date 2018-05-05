@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+    <title>数据控制台-@ViewBag.Title</title>
+
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="zuorx">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="~/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="~/assets/css/headers/header-v7.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/assets/plugins/animate.css">
+    <link rel="stylesheet" href="~/assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="~/assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/theme-skins/dark.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="~/assets/css/custom.css">
+    @RenderSection("PageSpecificStyleSheetIncludes", required: false)
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!--=== Header v7 Left ===-->
+        <div class="header-v7 header-left-v7">
+            <nav class="navbar navbar-default mCustomScrollbar" role="navigation" data-mcs-theme="minimal-dark">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="menu-container">
+                    <!-- Toggle get grouped for better mobile display -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- End Toggle -->
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="@Url.Action("Index", "Console")">
+                            <img id="logo-header" src="~/assets/img/logo.png" alt="Logo">
+                        </a>
+                    </div>
+                    <!-- End Logo -->
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <div class="menu-container">
+                        <ul class="nav navbar-nav">
+                            <!-- Home -->
+                            <li class="dropdown" id="homeli">
+                                @Html.ActionLink("欢迎", "Index", "Console")
+                            </li>
+                            <!-- End Home -->
+                            <!-- About Pages -->
+                            <li class="dropdown" id="blogli">
+                                @Html.ActionLink("博客", "Index", "BlogConsole")
+                            </li>
+                            <!-- End About Pages -->
+                            <!-- Blog -->
+                            <li class="dropdown" id="sourceli">
+                                @Html.ActionLink("源码", "Index", "SourceConsole")
+                            </li>
+                            <!-- End Blog -->
+                            <!-- Contacts -->
+                            <li class="dropdown" id="timeli">
+                                @Html.ActionLink("时间轴", "Index", "TimeConsole")
+                            </li>
+                            <!-- End Contacts -->
+                            <!-- Misc Pages -->
+                            <li class="dropdown" id="albumli">
+                                @Html.ActionLink("相册", "Index", "AlbumConsole")
+                            </li>
+                            <!-- End Misc Pages -->
+                        </ul>
+                        <p class="copyright-text">&copy; 2015-2016 zuorx. All Rights Reserved.</p>
+                    </div>
+                </div>
+                <!-- End Navbar Collapse -->
+            </nav>
+        </div>
+        <!--=== End Header v7 Left ===-->
+        @RenderBody()
+    </div><!--/wrapper-->
+    <!-- JS Global Compulsory -->
+    <!--[if lt IE 9]>
+        <script src="~/assets/plugins/respond.js"></script>
+        <script src="~/assets/plugins/html5shiv.js"></script>
+        <script src="~/assets/plugins/placeholder-IE-fixes.js"></script>
+    <![endif]-->
+    @RenderSection("PageSpecificJavascriptIncludes", required: false)
+</body>
+
+</html>

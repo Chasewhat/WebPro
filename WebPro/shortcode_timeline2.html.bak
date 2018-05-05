@@ -1,0 +1,302 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="zh" xmlns:wb="http://open.weibo.com/wb">
+<head>
+    <title>左瑞祥的个人博客--可以平凡不能平庸</title>
+
+    <!-- Meta -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="alternate" type="application/rss+xml" title="左瑞祥的个人博客 &raquo; Feed" href="/feed" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/headers/header-default.css">
+    <link rel="stylesheet" href="assets/css/footers/footer-v2.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <link rel="stylesheet" href="assets/plugins/animate.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/theme-skins/dark.css">
+    <!-- CSS Global Compulsory -->
+    
+</head>
+<body class="header-fixed ">
+
+    <div class="wrapper">
+        <!--=== Header ===-->
+        <div class="header header-sticky">
+            <!-- Navbar -->
+            <div class="container">
+                <!-- Logo -->
+                <a class="logo">
+                    <img id="logo-header" src="assets/img/logo.png" alt="Logo">
+                </a>
+                <!-- End Logo -->
+                <!-- Topbar -->
+                <div class="topbar">
+                    <ul class="loginbar pull-right">
+                        <li class="hoverSelector">
+                            <i class="fa fa-globe"></i>
+                            <a>切换皮肤</a>
+                            <ul class="languages hoverSelectorBlock">
+                                    <li class="active">
+                                        <a id="whitea">白色版 <i class="fa fa-check"></i></a>
+                                    </li>
+                                    <li><a id="blacka">黑色版</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Topbar -->
+                <!-- Toggle get grouped for better mobile display -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <!-- End Toggle -->
+            </div><!--/end container-->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <!-- Home -->
+                        <li class="dropdown" id="homeli" title="Home">
+                            <a href="/">主页</a>
+                        </li>
+                        <!-- End Home -->
+                        <!-- Pages -->
+                        <li class="dropdown" id="blogli">
+                            <a href="/Blog">程序人生</a>
+                        </li>
+                        <!-- End Pages -->
+                        <!-- Blog -->
+                        <li class="dropdown" id="shareli">
+                            <a href="/ResourceShare">个人分享</a>
+                        </li>
+                        <!-- End Blog -->
+                        <!-- Portfolio -->
+                        <li class="dropdown" id="messageli">
+                            <a href="/UserMessage">留言板</a>
+                        </li>
+                        <!-- End Portfolio -->
+                        <!-- Features -->
+                        <li class="dropdown" id="timeli">
+                            <a href="/TimeLine">时间轴</a>
+                        </li>
+                        <!-- End Features -->
+                        <!-- Features -->
+                        <li class="dropdown" id="photoli">
+                            <a href="/Photo">照片墙</a>
+                        </li>
+                        <!-- End Features -->
+                        <!-- Shortcodes -->
+                        <li class="dropdown" id="aboutli">
+                            <a href="/AboutMe">关于我</a>
+                        </li>
+                        <!-- End Shortcodes -->
+                        <!-- Search Block -->
+                        <li>
+                            <i class="search fa fa-search search-btn"></i>
+                            <div class="search-open">
+                                <div class="input-group animated fadeInDown">
+                                    <input type="text" class="form-control" placeholder="暂不支持全局检索">
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="button">Go</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End Search Block -->
+                    </ul>
+                </div><!--/end container-->
+            </div><!--/navbar-collapse-->
+            <!-- End Navbar -->
+        </div>
+        <!--=== End Header ===-->
+        
+<link rel="stylesheet" href="assets/css/pages/shortcode_timeline2.css">
+<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">不要为已消尽之年华叹息，必须正视匆匆溜走的时光。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> <a href="/">主页</a></li>
+            <li class="active">时间轴</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row">
+        <!-- Begin Content -->
+        <div class="col-md-9">
+            <ul class="timeline-v2">
+                    <li>
+                        <time class="cbp_tmtime" datetime=""><span>2015-08-05</span> <span>Wednesday</span></time>
+                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                        <div class="cbp_tmlabel">
+                            <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="cube-portfolio">
+                                            <div id="grid-container" class="cbp-l-grid-agency">
+                                                <div class="cbp-item">
+                                                    <div class="cbp-caption">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="assets/img/photo/28.jpg" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions">
+                                                                        <li><a href="assets/img/photo/28.jpg" class="cbp-lightbox" data-title=""><i class="rounded-x fa fa-search"></i></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="md-margin-bottom-20"></div>
+                                    </div>
+                                <div class="col-md-8">
+                                    <p>天气太热了，好浮躁，什么都不想做...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <time class="cbp_tmtime" datetime=""><span>2015-07-09</span> <span>Thurday</span></time>
+                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                        <div class="cbp_tmlabel">
+                                <h2>界面改版</h2>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>一个样式看久了总觉得腻，还是决定改个样式，本次修改增加了皮肤控制，优化了移动端浏览体验。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <time class="cbp_tmtime" datetime=""><span>2015-06-11</span> <span>Thursday</span></time>
+                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                        <div class="cbp_tmlabel">
+                                <h2>好的开始是成功的一半</h2>
+                            <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="cube-portfolio">
+                                            <div id="grid-container" class="cbp-l-grid-agency">
+                                                <div class="cbp-item">
+                                                    <div class="cbp-caption">
+                                                        <div class="cbp-caption-defaultWrap">
+                                                            <img src="assets/img/photo/9.jpg" alt="">
+                                                        </div>
+                                                        <div class="cbp-caption-activeWrap">
+                                                            <div class="cbp-l-caption-alignCenter">
+                                                                <div class="cbp-l-caption-body">
+                                                                    <ul class="link-captions">
+                                                                        <li><a href="assets/img/photo/9.jpg" class="cbp-lightbox" data-title="好的开始是成功的一半"><i class="rounded-x fa fa-search"></i></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="md-margin-bottom-20"></div>
+                                    </div>
+                                <div class="col-md-8">
+                                    <p>一直不怎么擅长写博文，酝酿了一周，总算有了第一个小成果，坚持走下去吧。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <time class="cbp_tmtime" datetime=""><span>2015-06-02</span> <span>Tuesday</span></time>
+                        <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                        <div class="cbp_tmlabel">
+                                <h2>迈出第一步</h2>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>从选素材到搭框架，总算有个大体的样子了。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            </ul>
+            <!--Pagination-->
+            <div class="text-center">
+                <ul class="pagination">
+                    
+                </ul>
+            </div>
+            <!--End Pagination-->
+        </div>
+        <!-- End Content -->
+        <div class="col-md-3">
+    <!-- End Photo Stream -->
+    <!-- Choose Us -->
+    <div class="who margin-bottom-30">
+        <p>
+            <i class="icon-user"></i>  姓名:左瑞祥<br />
+            <i class="icon-calculator"></i>  职业:程序猿(在路上...)<br />
+            <i class="icon-home"></i>  现居地:山东--青岛<br />
+        </p>
+        <wb:follow-button uid="5607256906" type="red_1" width="100%" height="24px">关注我</wb:follow-button>
+        <hr class="margin-bottom-40">
+        <img class="img-responsive profile-img margin-bottom-20" src="assets/img/blog/aa.png" alt="">
+        
+        <p style="color:darkseagreen">
+            一生至少该有一次,<br />
+            为了某个人而忘了自己,<br />
+            不求结果,<br />
+            不求同行,<br />
+            不求曾经拥有,<br />
+            甚至不求你爱我.<br />
+            只求在我最美的年华里,<br />
+            遇见你！
+        </p>
+        <ul class="list-unstyled">
+            <li><i class="fa  fa-bell"></i>徐志摩--忘了自己</li>
+        </ul>
+    </div><!--/who-->
+    <!-- End Choose Us -->
+
+</div>
+    </div>
+</div><!--/container-->
+<!--=== End Content Part ===-->
+<script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<script type="text/javascript" src="assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="assets/js/app.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        $("#timeli").addClass("active");
+    });
+</script>
+
+        
+</body>
+</html>

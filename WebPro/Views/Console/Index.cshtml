@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<!--=== Content Side Left Right ===-->
+<div class="content-side-right">
+    <!-- Interactive Slider -->
+    <div class="interactive-slider-v1 img-v3">
+        <div class="container">
+            <h2>欢迎来到数据控制台</h2>
+            <p>此控制台仅限管理员操作，谢谢合作.</p>
+        </div>
+    </div>
+    <!-- End Interactive Slider -->
+    <!-- Parallax Counter v4 -->
+    <div class="parallax-counter-v4 parallaxBg" style="background-position: 50% 27px;">
+        <div class="container content-sm">
+            <div class="row">
+                <div class="col-md-3 col-xs-6 md-margin-bottom-50">
+                    <i class="icon-cup"></i>
+                    <span class="counter">@ViewBag.bsum</span>
+                    <h4>博客</h4>
+                </div>
+                <div class="col-md-3 col-xs-6 md-margin-bottom-50">
+                    <i class="icon-clock"></i>
+                    <span class="counter">@ViewBag.ssum</span>
+                    <h4>源码</h4>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <i class="icon-emoticon-smile"></i>
+                    <span class="counter">@ViewBag.psum</span>
+                    <h4>照片</h4>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <i class="icon-bulb"></i>
+                    <span class="counter">@ViewBag.tsum</span>
+                    <h4>时间碎片</h4>
+                </div>
+            </div><!--/end row-->
+        </div><!--/end container-->
+    </div>
+    <!-- End Parallax Counter v4 -->
+    <!-- Content Boxes v6-->
+    <div class="container content-sm">
+        <div class="row">
+            <div class="col-md-4 content-boxes-v6 md-margin-bottom-50">
+                <i class="rounded-x icon-wrench"></i>
+                <h1 class="title-v3-md text-uppercase margin-bottom-10">管理维护</h1>
+                <p>仅限管理员操作.</p>
+            </div>
+            <div class="col-md-4 content-boxes-v6 md-margin-bottom-50">
+                <i class="rounded-x  icon-cloud-download"></i>
+                <h2 class="title-v3-md text-uppercase margin-bottom-10">源码获取</h2>
+                <p>最新源码获取请联系作者.</p>
+            </div>
+            <div class="col-md-4 content-boxes-v6">
+                <i class="rounded-x  icon-close"></i>
+                <h2 class="title-v3-md text-uppercase margin-bottom-10">异常日志</h2>
+                <p>异常日志查看.</p>
+            </div>
+        </div><!--/row-->
+    </div><!--/end container-->
+    <!-- End Content Boxes v6 -->
+</div>
+<!--=== End Content Side Left Right ===-->
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery-appear.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#homeli").addClass("active");
+        });
+    </script>
+}

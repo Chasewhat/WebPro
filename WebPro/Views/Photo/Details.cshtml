@@ -1,0 +1,96 @@
+﻿@model WebPro.Models.PagerTimeQuery<WebPro.Models.PagerInfo, IQueryable<WebPro.Models.Photos>>
+
+@{
+    ViewBag.Title = @ViewBag.groupTitle + "-左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="@ViewBag.groupTitle-左瑞祥的个人博客">
+    <meta name="keywords" content="@ViewBag.groupTitle,照片墙，左瑞祥，个人博客">
+}
+@using WebPro
+
+<link rel="stylesheet" href="~/assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+<link rel="stylesheet" href="~/assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">一张照片记录一抹回忆，一抹回忆牵出一个故事，一个故事书写一段岁月。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> @Html.ActionLink("主页", "Index", "Home")</li>
+            <li>@Html.ActionLink("照片墙", "Index", "Photo")</li>
+            <li class="active">@ViewBag.groupTitle</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Cube-Portfdlio ===-->
+<div class="cube-portfolio container margin-bottom-40">
+    <div id="grid-container" class="cbp-l-grid-agency" style="margin-top:40px">
+        @foreach (var item in Model.EntityList)
+        {
+            <div class="cbp-item">
+                <div class="cbp-caption">
+                    <div class="cbp-caption-defaultWrap">
+                        <img src="@item.imgurls" alt="">
+                    </div>
+                    <div class="cbp-caption-activeWrap">
+                        <div class="cbp-l-caption-alignCenter">
+                            <div class="cbp-l-caption-body">
+                                <ul class="link-captions">
+                                    <li><a id="atest_@item.id" href="@item.imgurls" class="cbp-lightbox" data-title="@item.content"><i class="rounded-x fa fa-search"></i></a></li>
+                                </ul>
+                                <div class="cbp-l-grid-agency-title">@item.title</div>
+                                <div class="cbp-l-grid-agency-desc">
+                                    @item.content
+                                    <br />
+                                    <i class="fa fa-calendar"></i> @item.publishTime.ToString("yyyy-MM-dd")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="cbp-title-dark">
+                    <div class="cbp-l-grid-agency-title">@item.title</div>
+                    <div class="cbp-l-grid-agency-desc">
+                        @item.content
+                        <ul class="list-unstyled list-inline blog-info">
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>*@
+            </div>
+        }
+
+    </div><!--/end Grid Container-->
+    
+</div>
+<div class="text-center">
+    <ul class="pagination">
+        @Html.ShowPageNavigate(Model.Pager.CurrentPageIndex, Model.Pager.PageSize, Model.Pager.RecordCount)
+    </ul>
+</div>
+<!--=== End Cube-Portfdlio ===-->
+<script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+<script type="text/javascript" src="~/assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="~/assets/js/app.js"></script>
+<script type="text/javascript" src="~/assets/js/plugins/cube-portfolio/cube-portfolio-4.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        $("#photoli").addClass("active");
+        $(".carousel-inner div.item:nth-child(1)").addClass("active");
+        if(@ViewBag.showId!="" && @ViewBag.showId!=0 && @ViewBag.showId!=null)
+        {
+            $("#atest_"+@ViewBag.showId).click();
+        }
+        ////location.href = temp;
+    });
+</script>

@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="keyword" Type="nvarchar(max)" />
+          <Property Name="showContent" Type="nvarchar(max)" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="imgurls" Type="nvarchar(max)" />
+          <Property Name="publishTime" Type="datetime" Nullable="false" />
+          <Property Name="author" Type="nvarchar(max)" />
+          <Property Name="viewCount" Type="int" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+          <Property Name="sourceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Essays">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="imgurls" Type="nvarchar" MaxLength="100" />
+          <Property Name="publishTime" Type="datetime" Nullable="false" />
+          <Property Name="week" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+          <Property Name="photo" Type="int" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logtype" Type="nvarchar" MaxLength="50" />
+          <Property Name="logcontent" Type="nvarchar(max)" />
+          <Property Name="logip" Type="nvarchar" MaxLength="50" />
+          <Property Name="logtime" Type="datetime" />
+          <Property Name="loguser" Type="nvarchar" MaxLength="50" />
+          <Property Name="logfree" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhotoGroups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="publishTime" Type="datetime" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+          <Property Name="imgTitle" Type="nvarchar(max)" />
+          <Property Name="imgFolder" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="imgurls" Type="nvarchar" MaxLength="100" />
+          <Property Name="publishTime" Type="datetime" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+          <Property Name="photoGroup" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sources">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="nvarchar(max)" />
+          <Property Name="keyword" Type="nvarchar(max)" />
+          <Property Name="content" Type="nvarchar(max)" />
+          <Property Name="downloadPath" Type="nvarchar(max)" />
+          <Property Name="imgurls" Type="nvarchar(max)" />
+          <Property Name="imgDescs" Type="nvarchar(max)" />
+          <Property Name="publishTime" Type="datetime" Nullable="false" />
+          <Property Name="author" Type="nvarchar(max)" />
+          <Property Name="downloadCount" Type="int" Nullable="false" />
+          <Property Name="orderNum" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WebModelStoreContainer">
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Essays" EntityType="Self.Essays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoGroups" EntityType="Self.PhotoGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sources" EntityType="Self.Sources" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="showContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgurls" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="publishTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="author" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="viewCount" Type="Int32" Nullable="false" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+          <Property Name="sourceId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Essays">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imgurls" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="publishTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="week" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="logid" />
+          </Key>
+          <Property Name="logid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logtype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logcontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="logip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logtime" Type="DateTime" Precision="3" />
+          <Property Name="loguser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="logfree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PhotoGroups">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="publishTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+          <Property Name="imgTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgFolder" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgurls" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="publishTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+          <Property Name="photoGroup" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sources">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="keyword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="downloadPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgurls" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imgDescs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="publishTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="author" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="downloadCount" Type="Int32" Nullable="false" />
+          <Property Name="orderNum" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" />
+          <EntitySet Name="Essays" EntityType="Self.Essays" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="PhotoGroups" EntityType="Self.PhotoGroups" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" />
+          <EntitySet Name="Sources" EntityType="Self.Sources" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WebModelStoreContainer" CdmEntityContainer="WebEntities">
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="WebModel.Blogs">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="showContent" ColumnName="showContent" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="imgurls" ColumnName="imgurls" />
+                <ScalarProperty Name="publishTime" ColumnName="publishTime" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="viewCount" ColumnName="viewCount" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+                <ScalarProperty Name="sourceId" ColumnName="sourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Essays">
+            <EntityTypeMapping TypeName="WebModel.Essays">
+              <MappingFragment StoreEntitySet="Essays">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="imgurls" ColumnName="imgurls" />
+                <ScalarProperty Name="publishTime" ColumnName="publishTime" />
+                <ScalarProperty Name="week" ColumnName="week" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="WebModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="logid" ColumnName="logid" />
+                <ScalarProperty Name="logtype" ColumnName="logtype" />
+                <ScalarProperty Name="logcontent" ColumnName="logcontent" />
+                <ScalarProperty Name="logip" ColumnName="logip" />
+                <ScalarProperty Name="logtime" ColumnName="logtime" />
+                <ScalarProperty Name="loguser" ColumnName="loguser" />
+                <ScalarProperty Name="logfree" ColumnName="logfree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhotoGroups">
+            <EntityTypeMapping TypeName="WebModel.PhotoGroups">
+              <MappingFragment StoreEntitySet="PhotoGroups">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="publishTime" ColumnName="publishTime" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+                <ScalarProperty Name="imgTitle" ColumnName="imgTitle" />
+                <ScalarProperty Name="imgFolder" ColumnName="imgFolder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="WebModel.Photos">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="imgurls" ColumnName="imgurls" />
+                <ScalarProperty Name="publishTime" ColumnName="publishTime" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+                <ScalarProperty Name="photoGroup" ColumnName="photoGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sources">
+            <EntityTypeMapping TypeName="WebModel.Sources">
+              <MappingFragment StoreEntitySet="Sources">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="downloadPath" ColumnName="downloadPath" />
+                <ScalarProperty Name="imgurls" ColumnName="imgurls" />
+                <ScalarProperty Name="imgDescs" ColumnName="imgDescs" />
+                <ScalarProperty Name="publishTime" ColumnName="publishTime" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="downloadCount" ColumnName="downloadCount" />
+                <ScalarProperty Name="orderNum" ColumnName="orderNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

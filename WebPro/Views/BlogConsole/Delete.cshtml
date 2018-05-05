@@ -1,0 +1,50 @@
+﻿@model WebPro.Models.Blogs
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="content-side-right">
+    <div class="container content-sm">
+        <div class="post-comment">
+            <h3>确认删除?</h3>
+            <fieldset>
+                <div class="headline">
+                    <h3>
+                        <i class="fa fa-times"></i>删除日志--@Model.title
+                    </h3>
+                    &nbsp;
+                    <a href="@Url.Action("Index")"><i class="fa  fa-reply"></i></a>
+                </div>
+
+
+            </fieldset>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <p>
+                    <input type="submit" class="btn-u" value="确 认" />
+                </p>
+            }
+        </div>
+    </div>
+</div>
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery-appear.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#blogli").addClass("active");
+        });
+    </script>
+}

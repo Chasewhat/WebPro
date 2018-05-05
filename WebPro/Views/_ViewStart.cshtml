@@ -1,0 +1,19 @@
+﻿ @{
+    var controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+    string[] lController = new string[] { "login"};
+    string[] ConsoleController = new string[] 
+    { "console","blogconsole","sourceconsole","timeconsole","photoconsole","albumconsole"};
+    
+    if (lController.Contains(controller))
+    {
+        Layout = null;
+    }
+    else if (ConsoleController.Contains(controller))
+    {
+        Layout = "~/Views/Shared/_LayoutConsole.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

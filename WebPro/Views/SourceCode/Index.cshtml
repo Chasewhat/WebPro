@@ -1,0 +1,140 @@
+﻿@model WebPro.Models.PagerQuery<WebPro.Models.PagerInfo, IQueryable<WebPro.Models.Sources>, WebPro.Models.BlogRight<IEnumerable<string>, IQueryable<WebPro.Models.Sources>>>
+
+@{
+    ViewBag.Title = "个人分享-左瑞祥的个人博客-可以平凡不能平庸";
+}
+@section metas{
+    <meta name="description" content="个人分享-左瑞祥的个人博客">
+    <meta name="keywords" content="个人分享，源码，左瑞祥，个人博客">
+}
+@using WebPro
+
+@section PageSpecificStyleSheetIncludes{
+    <link rel="stylesheet" href="~/assets/css/pages/blog.css">
+    <link rel="stylesheet" href="~/assets/css/pages/blog_magazine.css">
+}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs">
+    <div class="container">
+        <h5 class="pull-left" style="color:silver">赠人玫瑰，手有余香。</h5>
+        <ul class="pull-right breadcrumb">
+            <li><i class="fa  fa-map-marker"></i> @Html.ActionLink("主页", "Index", "Home")</li>
+            <li class="active">个人分享</li>
+        </ul>
+    </div>
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+<!--=== Content Part ===-->
+<div class="container content">
+    <div class="row blog-page">
+        <!-- Left Sidebar -->
+        <div class="col-md-9 md-margin-bottom-40">
+            <!--Blog Post-->
+            @foreach (var item in Model.EntityList)
+            {
+                <!--Blog Post-->
+                <div class="row blog blog-medium margin-bottom-40">
+                    <div class="col-md-5">
+                        <div class="carousel slide carousel-v1" id="myCarousel_@item.id">
+                            @if (item.imgurls != null && !string.IsNullOrEmpty(item.imgurls.Trim()))
+                            {
+                                <div class="carousel-inner">
+                                    @foreach (var img in item.imgurls.Split(new char[]{'|'},StringSplitOptions.RemoveEmptyEntries))
+                                    {
+                                        <div class="item">
+                                            <img alt="" src="@img">
+ 
+                                        </div>
+                                    }
+                                </div>
+
+                                if (item.imgurls.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Count() > 1)
+                                {
+                                    <div class="carousel-arrow">
+                                        <a data-slide="prev" href="#myCarousel_@item.id" class="left carousel-control">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                        <a data-slide="next" href="#myCarousel_@item.id" class="right carousel-control">
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h2>@item.title</h2>
+                        <ul class="list-unstyled list-inline blog-info">
+                            <li><i class="fa fa-calendar"></i> @item.publishTime.ToString("yyyy-MM-dd")</li>
+                            <li><i class="fa fa-pencil"></i> @Html.ActionLink(@item.author, "Index", "AboutMe")</li>
+                            <li id="downLi_@item.id"><i class="fa fa-comments"></i> @item.downloadCount.ToString() 下载</li>
+                        </ul>
+                        <ul class="list-unstyled list-inline blog-tags">
+                            <li>
+                                <i class="fa fa-tags"></i>
+                                @foreach (var key in item.keyword.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    @Html.ActionLink(@key, "Index", "SourceCode", new { searchKey = @key, searchFlag = 1 }, null)
+                                }
+                            </li>
+                        </ul>
+                        <p>@Html.Raw(@item.content)</p>
+                        <p>
+                            <a id="@item.id" class="btn-u btn-u-sm" href="@item.downloadPath">下载 <i class="fa fa-angle-double-right margin-left-5"></i></a>
+                        </p>
+                    </div>
+                </div>
+                <hr class="margin-bottom-40">
+            }
+            <!--End Blog Post-->
+            <!--Pagination-->
+            <div class="text-center">
+                <ul class="pagination">
+                    @Html.ShowPageNavigate(Model.Pager.CurrentPageIndex, Model.Pager.PageSize, Model.Pager.RecordCount)
+                </ul>
+            </div>
+            <!--End Pagination-->
+        </div>
+        <!-- End Left Sidebar -->
+        @Html.Partial("RightShare", Model.BlogRight)
+    </div><!--/row-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script type="text/javascript" src="~/assets/plugins/back-to-top.js"></script>
+    <script type="text/javascript" src="~/assets/plugins/smoothScroll.js"></script>
+    <!-- JS Customization -->
+    <script type="text/javascript" src="~/assets/js/custom.js" charset="gbk"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript" src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+            $("#shareli").addClass("active");
+            $(".carousel-inner div.item:nth-child(1)").addClass("active");
+            $(".btn-u.btn-u-sm").click(
+                function () {
+                    var id = $(this).attr("id");
+                    $.get("/SourceCode/Dowload/" + $(this).attr("id"), function (data, status) {
+                        if (status == "success")
+                            $("#downLi_" + id).text("").append("<i class='fa fa-comments'></i> " + data + " 下载");
+                    });
+                    //$.ajax({
+                    //    type:"Get",//这里是http类型
+                    //    contentType:"application/json",//这里设置发往服务端的数据类型
+                    //    url:"/ResourceShare/Dowload",//大家都应该很清楚了
+                    //    data:"id="+$(this).attr["id"],//回传一个参数
+                    //    dataType:"json",//传回来的数据类型
+                    //    success: function () { $("#downLi_" + $(this).attr["id"]).parent().text = "success" }
+                    //    });
+
+                }
+                );
+        });
+    </script>
+}
